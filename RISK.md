@@ -1,3 +1,7 @@
+---
+title: SentiGrid — Risk Disclosure
+---
+
 # SentiGrid — Risk Disclosure
 **Effective Date:** October 4, 2025
 
