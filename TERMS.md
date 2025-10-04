@@ -1,3 +1,7 @@
+---
+title: SentiGrid — Terms of Use
+---
+
 # SentiGrid — Terms of Use
 **Effective Date:** October 4, 2025
 
