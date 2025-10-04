@@ -1,3 +1,7 @@
+---
+title: SentiGrid — EULA
+---
+
 # SentiGrid — End-User License Agreement (EULA)
 **Effective Date:** October 4, 2025
 
