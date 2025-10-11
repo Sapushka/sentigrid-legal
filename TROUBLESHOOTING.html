@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Sentigrid — Troubleshooting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>body{font:15px/1.6 system-ui,Segoe UI,Helvetica,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px} code,kbd{background:#f6f6f6;padding:.1em .35em;border-radius:4px}</style>
+</head>
+<body>
+  <h1>Troubleshooting</h1>
+
+  <h2>Common messages</h2>
+  <ul>
+    <li><em>“No Twelve Data or Alpha Vantage keys found.”</em><br>Enter valid keys in Settings and click <strong>Save Keys</strong>.</li>
+    <li><em>“Alpha Vantage has no 'H4' intraday…”</em><br>Use H1 or D, or rely on Twelve Data for H4.</li>
+    <li><em>“COT is disabled.”</em><br>Tick <strong>Enable COT</strong> to show weekly COT details for supported FX pairs.</li>
+    <li><em>“COT: stale … ignored”</em><br>The latest COT report is older than 35 days; the app hides it to avoid confusion.</li>
+  </ul>
+
+  <h2>Show logs / data</h2>
+  <p>Use <strong>Help → Open Logs Folder</strong> and <strong>Help → Open Data Folder</strong>. Include logs when contacting support.</p>
+
+  <h2>Reset preferences</h2>
+  <ol>
+    <li>Close the app.</li>
+    <li>Delete the app’s data folder shown by <em>Open Data Folder</em>.</li>
+    <li>Re-open the app and re-enter keys.</li>
+  </ol>
+
+  <h2>Advanced</h2>
+  <ul>
+    <li>Open DevTools: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac: <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd>).</li>
+    <li>Check the <em>Console</em> for errors (e.g., network, API limits).</li>
+  </ul>
+
+  <p>Still stuck? See <a href="https://sentigridlegal.github.io/sentigrid-legal/FEEDBACK.html">Send Feedback / Report a Bug</a>.</p>
+</body>
+</html>
