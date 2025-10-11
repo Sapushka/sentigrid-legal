@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Sentigrid — User Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>body{font:15px/1.6 system-ui,Segoe UI,Helvetica,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px} h1,h2{line-height:1.25} code,kbd{background:#f6f6f6;padding:.1em .35em;border-radius:4px} .note{background:#fff6d6;border:1px solid #f5e2a3;padding:10px;border-radius:8px}</style>
+</head>
+<body>
+  <h1>Sentigrid — User Guide</h1>
+  <p>Welcome! This guide helps you set up and use the Sentigrid Trading Dashboard.</p>
+
+  <h2>1) First run & legal consent</h2>
+  <p>On first launch you’ll see a consent dialog (not investment advice, adult confirmation, EU waiver). You must accept to proceed.</p>
+
+  <h2>2) Add data keys</h2>
+  <ol>
+    <li>Open the app.</li>
+    <li>Enter your <strong>Twelve Data</strong> and/or <strong>Alpha Vantage</strong> API keys in the Settings panel.</li>
+    <li>Click <em>Save Keys</em>. You should see “Saved keys” in the status log.</li>
+  </ol>
+
+  <h2>3) Pick symbol & timeframe</h2>
+  <ul>
+    <li>Type a symbol (e.g., <code>EUR/USD</code> or <code>AAPL</code>).</li>
+    <li>Choose granularity: <strong>D</strong>, <strong>H4</strong>, or <strong>H1</strong>.</li>
+    <li>Click <em>Refresh</em> to draw the chart.</li>
+  </ul>
+  <div class="note"><strong>Note:</strong> Alpha Vantage doesn’t provide H4; the app automatically uses Twelve Data for H4 when available.</div>
+
+  <h2>4) Reading the chart</h2>
+  <ul>
+    <li>Main candles (with OHLC tooltip)</li>
+    <li>Overlays: EMA, Bollinger Bands; ATR on the right axis</li>
+    <li>Hover to see values; intraday charts drop the still-forming last bar</li>
+  </ul>
+
+  <h2>5) Signals & filters</h2>
+  <p>The “Example (not advice)” line summarizes a simple rule using EMA + Bollinger midline. Optional filters:</p>
+  <ul>
+    <li><strong>200-EMA Trend Filter</strong> — blocks counter-trend signals</li>
+    <li><strong>Momentum (EMA14 vs EMA50)</strong> — blocks weak momentum</li>
+    <li><strong>MTF confirmation</strong> — checks a lower timeframe for agreement</li>
+  </ul>
+
+  <h2>6) Risk & position sizing</h2>
+  <ul>
+    <li>Choose Stop method: <em>ATR × multiple</em> or <em>Custom %</em>.</li>
+    <li>Set account size and risk % (per trade) to see position notional & units.</li>
+    <li>Take-profit (TP) uses your risk:reward ratio (e.g., 2:1).</li>
+  </ul>
+
+  <h2>7) COT (Commitments of Traders)</h2>
+  <ul>
+    <li>Enable COT to view weekly net positions (Leveraged Funds) for major FX.</li>
+    <li>If a report is stale (&gt;35 days), the app hides it automatically.</li>
+  </ul>
+
+  <h2>8) Sentiment</h2>
+  <p>Optionally aggregates external sentiment (e.g., FXSSI). You can size down positions if the crowd is extreme.</p>
+
+  <h2>9) Troubleshooting basics</h2>
+  <ul>
+    <li>Check the <em>Status Log</em> at the bottom for messages.</li>
+    <li>Open the <em>Help → Troubleshooting</em> page for solutions.</li>
+    <li>Use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (or <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac) to open DevTools and see errors.</li>
+  </ul>
+
+  <p class="note"><strong>Disclaimer:</strong> Educational information only. Not investment advice.</p>
+</body>
+</html>
