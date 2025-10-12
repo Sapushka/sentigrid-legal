@@ -1,71 +1,195 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Sentigrid — User Guide</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>body{font:15px/1.6 system-ui,Segoe UI,Helvetica,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px} h1,h2{line-height:1.25} code,kbd{background:#f6f6f6;padding:.1em .35em;border-radius:4px} .note{background:#fff6d6;border:1px solid #f5e2a3;padding:10px;border-radius:8px}</style>
+  <meta charset="utf-8">
+  <title>SentiGrid — User Guide / Getting Started</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root{
+      --text:#222; --muted:#555; --bg:#fff; --ink:#0b68d7; --card:#f7f7f9; --border:#e6e6ee;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:var(--sans); color:var(--text); background:var(--bg); line-height:1.55}
+    a{color:var(--ink); text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:880px; margin:32px auto; padding:0 16px}
+    header{margin-bottom:20px}
+    h1{font-size:28px; margin:0 0 8px}
+    .subtitle{color:var(--muted)}
+    h2{margin-top:28px; padding-top:8px; border-top:1px solid var(--border)}
+    h3{margin-top:18px}
+    .callout{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:14px 0}
+    .toc{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 14px}
+    .toc ol{margin:8px 0 0 20px}
+    code, pre{font-family:var(--mono); background:#fafafc; border:1px solid var(--border); border-radius:8px}
+    code{padding:.1em .35em}
+    pre{padding:12px; overflow:auto}
+    ul{margin:8px 0 8px 22px}
+    .grid{display:grid; gap:10px}
+    @media (min-width:680px){ .grid.two{grid-template-columns:1fr 1fr} }
+    .tiny{font-size:12px; color:#666}
+    footer{margin:28px 0 16px; text-align:center; color:#666}
+    .kbd{display:inline-block; min-width:1.6em; text-align:center; padding:.15em .45em; border:1px solid #cfd6e6; border-bottom-width:2px; border-radius:6px; background:#f5f7fc; font-family:var(--mono); font-size:.92em}
+  </style>
 </head>
 <body>
-  <h1>Sentigrid — User Guide</h1>
-  <p>Welcome! This guide helps you set up and use the Sentigrid Trading Dashboard.</p>
+  <div class="wrap">
 
-  <h2>1) First run & legal consent</h2>
-  <p>On first launch you’ll see a consent dialog (not investment advice, adult confirmation, EU waiver). You must accept to proceed.</p>
+    <header>
+      <h1>SentiGrid — User Guide / Getting Started</h1>
+      <div class="subtitle">An educational dashboard for exploring market data, sentiment, and trade-planning concepts.</div>
+      <div class="callout tiny">
+        <strong>Educational use only.</strong> SentiGrid does <em>not</em> provide financial, trading, or investment advice.
+        Please read our <a href="https://sentigridlegal.github.io/sentigrid-legal/TERMS.html" target="_blank" rel="noopener">Terms</a>,
+        <a href="https://sentigridlegal.github.io/sentigrid-legal/PRIVACY.html" target="_blank" rel="noopener">Privacy</a>,
+        <a href="https://sentigridlegal.github.io/sentigrid-legal/RISK.html" target="_blank" rel="noopener">Risk</a>, and
+        <a href="https://sentigridlegal.github.io/sentigrid-legal/EULA.html" target="_blank" rel="noopener">EULA</a>.
+      </div>
+    </header>
 
-  <h2>2) Add data keys</h2>
-  <ol>
-    <li>Open the app.</li>
-    <li>Enter your <strong>Twelve Data</strong> and/or <strong>Alpha Vantage</strong> API keys in the Settings panel.</li>
-    <li>Click <em>Save Keys</em>. You should see “Saved keys” in the status log.</li>
-  </ol>
+    <div class="toc">
+      <strong>Quick navigation</strong>
+      <ol>
+        <li><a href="#keys">Setting Up API Keys</a></li>
+        <li><a href="#chart">Loading a Chart</a></li>
+        <li><a href="#indicators">Indicators (EMA, ATR, BB, R:R)</a></li>
+        <li><a href="#risk">Risk & Position Size</a></li>
+        <li><a href="#sentiment">Sentiment & COT</a></li>
+        <li><a href="#calendar">Economic Calendar</a></li>
+        <li><a href="#filters">Filters & Confirmation</a></li>
+        <li><a href="#troubleshoot">Troubleshooting</a></li>
+        <li><a href="#shortcuts">Keyboard Shortcuts</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#legal">Legal</a></li>
+      </ol>
+    </div>
 
-  <h2>3) Pick symbol & timeframe</h2>
-  <ul>
-    <li>Type a symbol (e.g., <code>EUR/USD</code> or <code>AAPL</code>).</li>
-    <li>Choose granularity: <strong>D</strong>, <strong>H4</strong>, or <strong>H1</strong>.</li>
-    <li>Click <em>Refresh</em> to draw the chart.</li>
-  </ul>
-  <div class="note"><strong>Note:</strong> Alpha Vantage doesn’t provide H4; the app automatically uses Twelve Data for H4 when available.</div>
+    <h2 id="keys">1) Setting Up API Keys</h2>
+    <p>SentiGrid pulls market data from public providers. You can use <strong>either or both</strong>:</p>
+    <div class="grid two">
+      <div class="callout">
+        <h3>Twelve Data</h3>
+        <ol>
+          <li>Go to <a href="https://twelvedata.com" target="_blank" rel="noopener">twelvedata.com</a> and create a free account.</li>
+          <li>Copy your <strong>API key</strong>.</li>
+          <li>In SentiGrid, open the <em>API Keys</em> panel and paste it into <strong>Twelve Data</strong>, then click <em>Save Keys</em>.</li>
+        </ol>
+      </div>
+      <div class="callout">
+        <h3>Alpha Vantage</h3>
+        <ol>
+          <li>Go to <a href="https://www.alphavantage.co" target="_blank" rel="noopener">alphavantage.co</a> and create a free account.</li>
+          <li>Copy your <strong>API key</strong>.</li>
+          <li>In SentiGrid, paste it into <strong>Alpha Vantage</strong>, then click <em>Save Keys</em>.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="tiny">Tip: If you add both, the app can fall back to the other source if one is rate-limited or slow.</p>
 
-  <h2>4) Reading the chart</h2>
-  <ul>
-    <li>Main candles (with OHLC tooltip)</li>
-    <li>Overlays: EMA, Bollinger Bands; ATR on the right axis</li>
-    <li>Hover to see values; intraday charts drop the still-forming last bar</li>
-  </ul>
+    <h2 id="chart">2) Loading a Chart</h2>
+    <ol>
+      <li>Type a symbol, e.g. <code>EUR/USD</code> (forex) or <code>AAPL</code> (stock).</li>
+      <li>Choose timeframe: <code>D</code> (daily), <code>H4</code>, or <code>H1</code>.</li>
+      <li>Click <strong>Refresh</strong>.</li>
+      <li>Candlesticks and overlays will render; click legend items to show/hide overlays.</li>
+    </ol>
+    <div class="callout tiny">
+      If data doesn’t load: verify keys, try the pair as <code>EURUSD</code> vs <code>EUR/USD</code>, or switch timeframe and refresh again.
+    </div>
 
-  <h2>5) Signals & filters</h2>
-  <p>The “Example (not advice)” line summarizes a simple rule using EMA + Bollinger midline. Optional filters:</p>
-  <ul>
-    <li><strong>200-EMA Trend Filter</strong> — blocks counter-trend signals</li>
-    <li><strong>Momentum (EMA14 vs EMA50)</strong> — blocks weak momentum</li>
-    <li><strong>MTF confirmation</strong> — checks a lower timeframe for agreement</li>
-  </ul>
+    <h2 id="indicators">3) Indicators (short explanations)</h2>
+    <table border="0" cellpadding="6" cellspacing="0" style="width:100%; border:1px solid var(--border); border-radius:12px">
+      <tbody>
+        <tr style="background:var(--card)"><th align="left">Indicator</th><th align="left">What it shows</th><th align="left">Inputs</th></tr>
+        <tr><td><strong>EMA</strong> (Exponential Moving Average)</td><td>Smoothed trend — rising EMA suggests uptrend; falling suggests downtrend.</td><td><code>EMA period</code> (e.g., 14)</td></tr>
+        <tr style="background:#fbfbfe"><td><strong>ATR</strong> (Average True Range)</td><td>Volatility — bigger ATR means bigger typical moves.</td><td><code>ATR period</code> (e.g., 14)</td></tr>
+        <tr><td><strong>BB</strong> (Bollinger Bands)</td><td>Upper/Lower bands around a moving average — price near bands can indicate stretched conditions.</td><td><code>BB period</code> (e.g., 20)</td></tr>
+        <tr style="background:#fbfbfe"><td><strong>R:R</strong> (Risk : Reward)</td><td>Planning tool — compare potential loss vs potential gain for a scenario.</td><td><code>R:R</code> ratio (e.g., 2.0)</td></tr>
+      </tbody>
+    </table>
+    <p class="tiny">You can tweak periods in the <em>Inputs</em> card to see how signals change.</p>
 
-  <h2>6) Risk & position sizing</h2>
-  <ul>
-    <li>Choose Stop method: <em>ATR × multiple</em> or <em>Custom %</em>.</li>
-    <li>Set account size and risk % (per trade) to see position notional & units.</li>
-    <li>Take-profit (TP) uses your risk:reward ratio (e.g., 2:1).</li>
-  </ul>
+    <h2 id="risk">4) Risk &amp; Position Size</h2>
+    <ul>
+      <li>Enter <strong>Account Size</strong> (e.g., <code>10000</code>).</li>
+      <li>Enter <strong>Risk %</strong> per idea (e.g., <code>1</code> = 1%).</li>
+      <li>Choose stop method:
+        <ul>
+          <li><strong>ATR × multiple</strong> (volatility-based), or</li>
+          <li><strong>Custom Stop %</strong> (manual).</li>
+        </ul>
+      </li>
+      <li>The app calculates an <em>educational</em> position size for comparison.</li>
+    </ul>
+    <p class="tiny">This is not advice — it’s a learning aid to see how risk changes sizing.</p>
 
-  <h2>7) COT (Commitments of Traders)</h2>
-  <ul>
-    <li>Enable COT to view weekly net positions (Leveraged Funds) for major FX.</li>
-    <li>If a report is stale (&gt;35 days), the app hides it automatically.</li>
-  </ul>
+    <h2 id="sentiment">5) Sentiment &amp; COT</h2>
+    <ul>
+      <li><strong>FXSSI Current Ratio</strong>: shows a snapshot of retail long vs short (%). Extreme one-sidedness can be informative.</li>
+      <li><strong>COT (Commitment of Traders)</strong>: weekly “leveraged funds” positioning (net = long − short). Major futures like EUR, JPY, GBP are best-covered.</li>
+    </ul>
+    <div class="callout tiny">
+      COT updates weekly (usually Friday for Tuesday’s positions). Some markets can be delayed; if unavailable, treat COT as “off” for that pair.
+    </div>
 
-  <h2>8) Sentiment</h2>
-  <p>Optionally aggregates external sentiment (e.g., FXSSI). You can size down positions if the crowd is extreme.</p>
+    <h2 id="calendar">6) Economic Calendar</h2>
+    <p>Use the quick links in the app to check upcoming events that can move markets:</p>
+    <ul>
+      <li><a href="https://tradingeconomics.com/calendar" target="_blank" rel="noopener">TradingEconomics — Full Calendar</a></li>
+      <li><a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener">ForexFactory — Impact coloring</a></li>
+      <li><a href="https://www.investing.com/economic-calendar/" target="_blank" rel="noopener">Investing.com — Economic Calendar</a></li>
+      <li><a href="https://www.dailyfx.com/economic-calendar" target="_blank" rel="noopener">DailyFX — Economic Calendar</a></li>
+    </ul>
 
-  <h2>9) Troubleshooting basics</h2>
-  <ul>
-    <li>Check the <em>Status Log</em> at the bottom for messages.</li>
-    <li>Open the <em>Help → Troubleshooting</em> page for solutions.</li>
-    <li>Use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (or <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac) to open DevTools and see errors.</li>
-  </ul>
+    <h2 id="filters">7) Filters &amp; Confirmation</h2>
+    <ul>
+      <li><strong>MTF Confirmation</strong>: combine a higher-timeframe view with a lower-timeframe check.</li>
+      <li><strong>200-EMA Trend Filter</strong>: restricts ideas to trend direction only (Sell-only or Buy-only toggles).</li>
+      <li><strong>EMA Momentum (14/50)</strong>: basic momentum check (faster vs slower EMA).</li>
+      <li><strong>Volatility Filter</strong> &amp; <strong>Volatility Sizing</strong>: avoid low-quality conditions or scale size down in high vol.</li>
+      <li><strong>Apply Sentiment Sizing</strong>: if retail sentiment is ≥ a threshold (e.g., 70% one-sided), size down (e.g., 50%).</li>
+    </ul>
 
-  <p class="note"><strong>Disclaimer:</strong> Educational information only. Not investment advice.</p>
+    <h2 id="troubleshoot">8) Troubleshooting</h2>
+    <ul>
+      <li>Open <strong>Help → Troubleshooting (Open Data/Logs Folder)</strong> to view logs or clear saved keys/prefs.</li>
+      <li>Restart the app after clearing keys or changing providers.</li>
+      <li>If a provider rate-limits you, try again later or add the second provider’s key as backup.</li>
+      <li>Symbols: try both formats (<code>EUR/USD</code> vs <code>EURUSD</code>), then <strong>Refresh</strong>.</li>
+    </ul>
+
+    <h2 id="shortcuts">9) Keyboard Shortcuts</h2>
+    <ul>
+      <li><span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> + <span class="kbd">R</span> — Refresh data</li>
+      <li><span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> + <span class="kbd">L</span> — Focus Symbol box</li>
+      <li><span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> + <span class="kbd">+</span> / <span class="kbd">−</span> — Zoom UI (if enabled)</li>
+      <li><span class="kbd">Esc</span> — Close dialogs</li>
+    </ul>
+    <p class="tiny">Windows/Linux use Ctrl; macOS uses Cmd.</p>
+
+    <h2 id="faq">10) FAQ</h2>
+    <p><strong>Do I need both API keys?</strong><br>
+      No. One key is enough. Adding both improves reliability.</p>
+    <p><strong>Why do candles sometimes stop?</strong><br>
+      Free tiers can throttle. Try again later or refresh with a different timeframe.</p>
+    <p><strong>Why does COT show “unavailable”?</strong><br>
+      Some instruments are not mapped or are delayed. Use pairs backed by major futures (EUR, JPY, GBP, CAD, AUD, CHF).</p>
+
+    <h2 id="legal">11) Legal</h2>
+    <ul>
+      <li><a href="https://sentigridlegal.github.io/sentigrid-legal/TERMS.html" target="_blank" rel="noopener">Terms of Use</a></li>
+      <li><a href="https://sentigridlegal.github.io/sentigrid-legal/PRIVACY.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+      <li><a href="https://sentigridlegal.github.io/sentigrid-legal/RISK.html" target="_blank" rel="noopener">Risk Disclosure</a></li>
+      <li><a href="https://sentigridlegal.github.io/sentigrid-legal/EULA.html" target="_blank" rel="noopener">EULA</a></li>
+      <li><a href="mailto:sentigrid.help@gmail.com">Support / Feedback</a></li>
+    </ul>
+
+    <footer class="tiny">
+      © SentiGrid — Educational tool. No financial advice.
+    </footer>
+
+  </div>
 </body>
 </html>
