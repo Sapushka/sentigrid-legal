@@ -154,11 +154,16 @@
 
     <h2 id="troubleshoot">8) Troubleshooting</h2>
     <ul>
-      <li>Open <strong>Help → Troubleshooting (Open Data/Logs Folder)</strong> to view logs or clear saved keys/prefs.</li>
-      <li>Restart the app after clearing keys or changing providers.</li>
-      <li>If a provider rate-limits you, try again later or add the second provider’s key as backup.</li>
-      <li>Symbols: try both formats (<code>EUR/USD</code> vs <code>EURUSD</code>), then <strong>Refresh</strong>.</li>
+      <li>Check the <strong>Status</strong> panel at the bottom of the app. It shows what the app is doing (key loads, data requests, errors) in time order.</li>
+      <li>Under <strong>Chart</strong>, read the <strong>Data source</strong> line (e.g., “Twelve Data (H4)” or “Alpha Vantage (Daily)”) to confirm what actually loaded.</li>
+      <li><strong>Keys:</strong> In <em>API Keys</em>, click <strong>Test Load Keys</strong> to verify they’re saved. Use <strong>Save Keys</strong> if needed, or <strong>Delete Saved Keys</strong> to reset and re-enter.</li>
+      <li><strong>Timeframe:</strong> If H4 won’t load with Alpha Vantage, switch to <strong>H1</strong> or <strong>D</strong>, or rely on <strong>Twelve Data</strong> for H4.</li>
+      <li><strong>Symbols:</strong> try both formats (<code>EUR/USD</code> vs <code>EURUSD</code>), then press <strong>Refresh</strong>.</li>
+      <li><strong>Rate limits / outages:</strong> free tiers can throttle. Try again later or add the second provider’s key as backup.</li>
+      <li><strong>Closed markets:</strong> weekends/holidays may show gaps or no new bars—this is normal.</li>
     </ul>
+    <p><em>When contacting support</em>: copy the last lines from <strong>Status</strong>, include your symbol, timeframe, local time &amp; timezone, and which provider(s) you use. Email: <a href="mailto:sentigrid.help@gmail.com">sentigrid.help@gmail.com</a>.</p>
+
 
     <h2 id="shortcuts">9) Keyboard Shortcuts</h2>
     <ul>
