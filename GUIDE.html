@@ -49,6 +49,39 @@
       </div>
     </header>
 
+    <h2 id="symbols-supported">Symbols supported</h2>
+    <ul>
+      <li><strong>FX pairs</strong> — e.g., <code>EUR/USD</code>, <code>GBP/JPY</code>
+        <ul>
+          <li><strong>Formats accepted:</strong> <code>AAA/BBB</code>, <code>AAABBB</code>, or <code>AAA_BBB</code> (case-insensitive).</li>
+          <li><strong>Timeframes:</strong> <code>D</code>, <code>H4</code>, <code>H1</code>.</li>
+          <li><strong>Data source:</strong> Intraday usually from Twelve Data; daily from Alpha Vantage and/or Twelve Data.</li>
+          <li>If a provider can’t deliver intraday, the app will automatically use daily and show <em>“daily fallback”</em> under the chart.</li>
+        </ul>
+      </li>
+    
+      <li><strong>US stocks</strong> — e.g., <code>AAPL</code>, <code>MSFT</code>, <code>TSLA</code>
+        <ul>
+          <li><strong>Timeframes:</strong> <em>Daily only</em> on free keys. Selecting <code>H1</code>/<code>H4</code> will fall back to daily and the chart will say so.</li>
+          <li><strong>Live price line:</strong> not shown for stocks (FX only).</li>
+        </ul>
+      </li>
+    
+      <li><strong>Indices</strong> — tickers like <code>INDU</code>, <code>INDU:IND</code>, <code>^DJI</code> are <em>not supported</em> directly.
+        <ul>
+          <li>Use the matching <strong>ETF</strong> instead: <code>DIA</code> (Dow), <code>SPY</code>/<code>VOO</code> (S&amp;P 500), <code>QQQ</code> (Nasdaq-100). These load <em>daily</em> bars on free keys.</li>
+        </ul>
+      </li>
+    
+      <li><strong>Live price line</strong> — FX pairs only (you’ll see a “Live …” note next to the current price when available).</li>
+      <li><strong>“Data source” line</strong> — shown above the chart; it tells you which provider/timeframe was used and whether a <em>daily fallback</em> occurred.</li>
+    </ul>
+    
+    <div class="callout">
+      <strong>Tip:</strong> Free API keys can be rate-limited. If data doesn’t load, try again in a few minutes or add the second provider’s key as a backup.
+    </div>
+
+
     <div class="toc">
       <strong>Quick navigation</strong>
       <ol>
