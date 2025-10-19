@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SentiGrid — About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root{
+      --text:#222; --muted:#555; --bg:#fff; --ink:#0b68d7; --card:#f7f7f9; --border:#e6e6ee;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:var(--sans); color:var(--text); background:var(--bg); line-height:1.55}
+    a{color:var(--ink); text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:880px; margin:32px auto; padding:0 16px}
+    header{margin-bottom:20px}
+    h1{font-size:28px; margin:0 0 8px}
+    .subtitle{color:var(--muted)}
+    h2{margin-top:28px; padding-top:8px; border-top:1px solid var(--border)}
+    h3{margin-top:18px}
+    .callout{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:14px 0}
+    code, pre{font-family:var(--mono); background:#fafafc; border:1px solid var(--border); border-radius:8px}
+    code{padding:.1em .35em}
+    ul{margin:8px 0 8px 22px}
+    .small{font-size:13px; color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>About SentiGrid</h1>
+      <div class="subtitle">What the app does, why it includes these tools, and how to use it responsibly.</div>
+    </header>
+
+    <div class="callout">
+      <strong>Educational use only — not financial advice.</strong> SentiGrid helps you learn common workflows with
+      <em>real market data</em>, but it does not place trades or recommend investments. Markets are uncertain and data feeds
+      can be delayed or incomplete.
+    </div>
+
+    <h2>What SentiGrid does</h2>
+    <ul>
+      <li>Pulls market data from public providers and clearly labels the <strong>data source</strong> used for each chart.</li>
+      <li>Draws <strong>candlestick charts</strong> with a small, widely used set of overlays:
+        <ul>
+          <li><strong>EMA</strong> (configurable) — a fast, responsive moving average.</li>
+          <li><strong>Bollinger Bands</strong> — show stretch/mean-reversion around the recent average.</li>
+          <li><strong>ATR</strong> — estimates typical movement to help size stops.</li>
+        </ul>
+      </li>
+      <li>Offers optional <strong>filters & confirmations</strong> commonly taught to new traders:
+        <ul>
+          <li><strong>200-EMA trend filters</strong> (Buy-only / Sell-only variants).</li>
+          <li><strong>EMA momentum</strong> (14 vs 50) to avoid fighting momentum.</li>
+          <li><strong>Multi-timeframe confirmation</strong> (e.g., confirm Daily with H4/H1/M30).</li>
+          <li><strong>Volatility filter & sizing</strong> to scale down risk when conditions are jumpy.</li>
+          <li><strong>Sentiment</strong> (FXSSI) and <strong>COT (Leveraged Funds, weekly)</strong> for context (when recent).</li>
+        </ul>
+      </li>
+      <li>Computes <strong>position size</strong> from account size, risk %, and stop distance — so risk is explicit <em>before</em> any hypothetical trade.</li>
+      <li>Shows a transparent <strong>“Why this decision”</strong> breakdown (Buy/Sell/Wait) — as an example, not a signal.</li>
+      <li>Maintains a <strong>Status</strong> log (keys loaded, data requests, fallbacks, errors) for visibility.</li>
+    </ul>
+
+    <h2>Session & liquidity hints (time-of-day context)</h2>
+    <p>The app displays a small line under <em>Filters &amp; Confirmation</em> such as:</p>
+    <div class="callout">“<strong>Now 10:02 AM — Forex mostly closed. Liquidity is minimal; check your broker’s hours.</strong>”</div>
+    <p>This is a simple, automatic <strong>session awareness</strong> cue. It updates periodically and summarizes what’s typical for the current time (UTC logic) — for example, when FX is largely closed or when major sessions overlap. It’s <em>context</em>, not a signal, but helps set expectations for spreads, fills, and how noisy/quiet intraday moves may be.</p>
+
+    <h3>Typical patterns (approximate UTC)</h3>
+    <ul>
+      <li><strong>Closed / thin periods</strong>
+        <ul>
+          <li><strong>Fri ~22:00 → Sun ~22:00:</strong> FX mostly closed. Liquidity is minimal; many brokers don’t quote or quote wide.</li>
+          <li><strong>Early week open</strong> (Sun late / Mon very early): conditions can be thin and jumpy.</li>
+          <li><strong>Late Friday:</strong> liquidity often fades into the close.</li>
+        </ul>
+      </li>
+      <li><strong>Active sessions & overlaps</strong>
+        <ul>
+          <li><strong>London–New York overlap (12:00–16:00):</strong> typically most active — e.g., EUR/USD, GBP/USD, USD/CAD, XAU/USD.</li>
+          <li><strong>Europe / London (07:00–12:00):</strong> EUR/USD, GBP/USD, EUR/GBP, USD/CHF often see flow.</li>
+          <li><strong>US / New York (12:00–21:00):</strong> EUR/USD, GBP/USD, USD/CAD, XAU/USD remain active.</li>
+          <li><strong>Asia (22:00–08:00):</strong> USD/JPY, AUD/USD, NZD/USD, AUD/JPY are relatively more active.</li>
+        </ul>
+      </li>
+    </ul>
+    <p class="small">Session norms are generalizations; <strong>world economic/political news</strong> can override typical patterns.</p>
+
+    <h2>Why real data but <em>not</em> advice</h2>
+    <p>Markets are uncertain, and no simple overlay guarantees future outcomes. SentiGrid’s outputs are <strong>illustrations</strong> of a process
+    — what to check, how to size, and how to think about context — not trade recommendations. You’re responsible for your own decisions.</p>
+
+    <h2>Why these indicators and checks</h2>
+    <ul>
+      <li><strong>EMA</strong> — popular, transparent, and responsive without many knobs to over-fit.</li>
+      <li><strong>Bollinger Bands</strong> — a clear, visual way to spot expansion/mean-reversion pressure.</li>
+      <li><strong>ATR</strong> — practical for stop distance and risk sizing.</li>
+      <li><strong>200-EMA trend filter</strong> — a common big-picture guardrail.</li>
+      <li><strong>EMA(14/50) momentum</strong> — a simple momentum test used widely in teaching material.</li>
+      <li><strong>Multi-timeframe confirmation</strong> — a classic way to reduce false positives.</li>
+      <li><strong>Volatility sizing</strong> — encourages smaller risk in turbulent periods.</li>
+      <li><strong>Sentiment &amp; COT</strong> — not timing tools, but helpful macro/crowding context.</li>
+    </ul>
+
+    <h2>Who benefits</h2>
+    <ul>
+      <li><strong>Beginners</strong> who want a guided workflow: clear inputs, visible context, and an explained example decision.</li>
+      <li><strong>Intermediates</strong> who want quick sanity checks (trend, momentum, volatility, sentiment) and consistent risk sizing.</li>
+    </ul>
+
+    <h2>What SentiGrid doesn’t do</h2>
+    <ul>
+      <li>No broker connection, order routing, or automated trading.</li>
+      <li>No proprietary signals, back-tested claims, or performance promises.</li>
+      <li>No guarantee that a “Buy/Sell/Wait” example will match future price action.</li>
+    </ul>
+
+    <h2>Data sources & limitations</h2>
+    <ul>
+      <li>Data comes from third parties and may be <strong>delayed, rate-limited, or incomplete</strong>. The app tries multiple sources (e.g., Alpha Vantage ↔ Twelve Data) and clearly labels which one was used (including daily fallback when intraday isn’t available).</li>
+      <li><strong>COT</strong> is weekly and may be stale for some contracts; when too old, the app marks it as such and minimizes its influence.</li>
+      <li>Economic calendar links open externally; they’re provided for convenience only.</li>
+    </ul>
+
+    <h2>Privacy & storage</h2>
+    <ul>
+      <li>API keys are stored <strong>locally</strong> on your device (via <code>electron-store</code> or a local JSON fallback).</li>
+      <li>The app does not upload your keys to a server.</li>
+    </ul>
+
+    <h2>Why this app can help</h2>
+    <p>SentiGrid is designed to teach the habits that matter early: identify trend and momentum, respect volatility, size risk before acting,
+    and check broader context (sentiment/COT/calendar/sessions). The focus is on being <strong>consistent, explainable, and disciplined</strong>.</p>
+
+    <p class="small">For terms, privacy, risk, and EULA, see the links in the app footer.</p>
+  </div>
+</body>
+</html>
