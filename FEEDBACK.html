@@ -1,27 +1,78 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Sentigrid — Feedback & Bug Reports</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>body{font:15px/1.6 system-ui,Segoe UI,Helvetica,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px} code{background:#f6f6f6;padding:.1em .35em;border-radius:4px}</style>
+  <meta charset="utf-8">
+  <title>SentiGrid — Feedback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://sentigridlegal.github.io/sentigrid-legal/FEEDBACK.html">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Tell SentiGrid what works, what’s confusing, and what to improve. Bug reports and feature ideas welcome.">
+
+  <!-- Icons you already have -->
+  <link rel="icon" type="image/png" href="/sentigrid-legal/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/sentigrid-legal/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0f1117">
+
+  <style>
+    :root{
+      --text:#222; --muted:#555; --bg:#fff; --ink:#0b68d7; --card:#f7f7f9; --border:#e6e6ee;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:var(--sans); color:var(--text); background:var(--bg); line-height:1.55}
+    a{color:var(--ink); text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:880px; margin:32px auto; padding:0 16px}
+    h1{font-size:28px; margin:0 0 8px}
+    .subtitle{color:var(--muted)}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin:14px 0}
+    ul{margin:8px 0 8px 22px}
+    .small{font-size:13px; color:var(--muted)}
+    input, textarea{width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; font:inherit}
+    button{padding:10px 14px; border:0; border-radius:10px; background:#0b68d7; color:#fff; cursor:pointer}
+    button:disabled{opacity:.6; cursor:not-allowed}
+  </style>
 </head>
 <body>
-  <h1>Feedback & Bug Reports</h1>
-  <p>We’d love to hear from you.</p>
+  <div class="wrap">
+    <h1>Feedback</h1>
+    <div class="subtitle">Tell us what’s working, what’s confusing, and what to improve.</div>
 
-  <h2>Email</h2>
-  <p><a href="mailto:sentigrid.help@gmail.com?subject=Sentigrid%20Feedback">sentigrid.help@gmail.com</a></p>
+    <div class="card">
+      <h2>Quick options</h2>
+      <ul>
+        <li>Email: <a href="mailto:sentigrid.help@gmail.com?subject=SentiGrid%20feedback">sentigrid.help@gmail.com</a></li>
+        <li>Open an issue on GitHub: <a href="https://github.com/sentigridlegal/sentigrid-legal/issues" target="_blank" rel="noopener">New issue</a></li>
+      </ul>
+      <p class="small">Tip: include your OS (Windows/macOS), app version, and steps to reproduce bugs.</p>
+    </div>
 
-  <h2>What to include</h2>
-  <ul>
-    <li>What you were doing</li>
-    <li>Exact error message (copy from the Status Log or DevTools)</li>
-    <li>Screenshot of the chart or panel</li>
-    <li>App version (from the title bar or installer filename)</li>
-  </ul>
+    <div class="card">
+      <h2>Send from here (opens your email)</h2>
+      <form onsubmit="sendMailto(event)">
+        <label for="topic">Topic</label>
+        <input id="topic" name="topic" placeholder="Bug, feature request, UI copy, data source, etc.">
+        <label for="message" style="margin-top:10px">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="What happened? What did you expect? Steps to reproduce?"></textarea>
+        <div style="display:flex; gap:8px; margin-top:12px">
+          <button type="submit">Create email</button>
+          <a class="small" href="mailto:sentigrid.help@gmail.com">Open blank email instead</a>
+        </div>
+      </form>
+      <p class="small" style="margin-top:12px">
+        We read every note. For privacy details, see our <a href="PRIVACY.html">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
 
-  <h2>Privacy</h2>
-  <p>Do not include API keys or personal information. We only use your report to investigate issues. See our <a href="https://sentigridlegal.github.io/sentigrid-legal/PRIVACY.html">Privacy Policy</a>.</p>
+  <script>
+    function sendMailto(e){
+      e.preventDefault();
+      const topic = encodeURIComponent(document.getElementById('topic').value.trim() || 'Feedback');
+      const body  = encodeURIComponent(document.getElementById('message').value.trim());
+      const href  = `mailto:sentigrid.help@gmail.com?subject=SentiGrid%20${topic}&body=${body}`;
+      window.location.href = href;
+    }
+  </script>
 </body>
 </html>
