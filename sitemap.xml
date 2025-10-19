@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/ABOUT.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/GUIDE.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/TROUBLESHOOTING.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/FEEDBACK.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/SHORTCUTS.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/LICENSES.html</loc></url>
+
+  <!-- These are rendered from Markdown to HTML by GitHub Pages -->
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/TERMS.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/PRIVACY.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/RISK.html</loc></url>
+  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/EULA.html</loc></url>
+</urlset>
