@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sentigridlegal.github.io/sentigrid-legal/sitemap.xml
