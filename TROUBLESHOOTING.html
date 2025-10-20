@@ -1,48 +1,85 @@
-<h1>Troubleshooting</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SentiGrid Troubleshooting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://sentigridlegal.github.io/sentigrid-legal/TROUBLESHOOTING.html">
+  <meta name="description" content="SentiGrid troubleshooting: fixes for install, data loading, indicators, and display issues. Step-by-step help to get the app working.">
+  <meta name="robots" content="index,follow">
 
-<h2 id="read-first">Read this first</h2>
-<ul>
-  <li>Open the app’s <strong>Status</strong> panel (bottom of the window). It lists key loads, provider requests, and any errors (network, rate-limit, invalid key, etc.).</li>
-  <li>At the top of the <strong>Chart</strong> card, check the <strong>Data source</strong> line to see which provider/timeframe rendered (e.g., “Twelve Data (H4)” or “Alpha Vantage (Daily)”).</li>
-</ul>
+  <!-- Structured data for answer engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://sentigridlegal.github.io/sentigrid-legal/TROUBLESHOOTING.html#article",
+    "url": "https://sentigridlegal.github.io/sentigrid-legal/TROUBLESHOOTING.html",
+    "headline": "SentiGrid Troubleshooting",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "dateModified": "2025-10-20",
+    "about": {
+      "@type": "SoftwareApplication",
+      "name": "SentiGrid",
+      "applicationCategory": "FinanceApplication"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://sentigridlegal.github.io/sentigrid-legal/TROUBLESHOOTING.html"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Troubleshooting</h1>
 
+    <h2 id="read-first">Read this first</h2>
+    <ul>
+      <li>Open the app’s <strong>Status</strong> panel (bottom of the window). It lists key loads, provider requests, and any errors (network, rate-limit, invalid key, etc.).</li>
+      <li>At the top of the <strong>Chart</strong> card, check the <strong>Data source</strong> line to see which provider/timeframe rendered (e.g., “Twelve Data (H4)” or “Alpha Vantage (Daily)”).</li>
+    </ul>
 
-<h2 id="common-messages">Common messages</h2>
-<ul>
-  <li><strong>“No Twelve Data or Alpha Vantage keys found.”</strong> — Enter keys in <em>API Keys</em> → <strong>Save Keys</strong> → <strong>Refresh</strong>.</li>
-  <li><strong>“Alpha Vantage has no ‘H4’ intraday…”</strong> — Use <strong>H1</strong> or <strong>D</strong>, or rely on <strong>Twelve Data</strong> for H4.</li>
-  <li><strong>“COT is disabled.”</strong> — Tick <strong>Enable COT</strong>. COT is weekly and some markets can be delayed.</li>
-  <li><strong>“COT: stale … ignored”</strong> — Latest COT report is &gt;35 days old; the app hides it to avoid confusion.</li>
-</ul>
+    <h2 id="common-messages">Common messages</h2>
+    <ul>
+      <li><strong>“No Twelve Data or Alpha Vantage keys found.”</strong> — Enter keys in <em>API Keys</em> → <strong>Save Keys</strong> → <strong>Refresh</strong>.</li>
+      <li><strong>“Alpha Vantage has no ‘H4’ intraday…”</strong> — Use <strong>H1</strong> or <strong>D</strong>, or rely on <strong>Twelve Data</strong> for H4.</li>
+      <li><strong>“COT is disabled.”</strong> — Tick <strong>Enable COT</strong>. COT is weekly and some markets can be delayed.</li>
+      <li><strong>“COT: stale … ignored”</strong> — Latest COT report is &gt;35 days old; the app hides it to avoid confusion.</li>
+    </ul>
 
-<h2 id="blank-chart">If the chart is blank</h2>
-<ol>
-  <li><strong>Keys</strong> — In <em>API Keys</em>, click <strong>Test Load Keys</strong>. If needed, <strong>Delete Saved Keys</strong>, re-enter, then <strong>Save Keys</strong> and <strong>Refresh</strong>.</li>
-  <li><strong>Timeframe</strong> — Switch between <strong>D</strong>, <strong>H4</strong>, <strong>H1</strong> and press <strong>Refresh</strong>.</li>
-  <li><strong>Symbol format</strong> — Try <code>EUR/USD</code> and <code>EURUSD</code>, then <strong>Refresh</strong>.</li>
-  <li><strong>Provider throttling</strong> — Free tiers can rate-limit. Wait a few minutes or add the other provider key to enable fallback.</li>
-  <li><strong>Closed markets / gaps</strong> — Weekends/holidays or provider gaps may show no bars for a period.</li>
-</ol>
+    <h2 id="blank-chart">If the chart is blank</h2>
+    <ol>
+      <li><strong>Keys</strong> — In <em>API Keys</em>, click <strong>Test Load Keys</strong>. If needed, <strong>Delete Saved Keys</strong>, re-enter, then <strong>Save Keys</strong> and <strong>Refresh</strong>.</li>
+      <li><strong>Timeframe</strong> — Switch between <strong>D</strong>, <strong>H4</strong>, <strong>H1</strong> and press <strong>Refresh</strong>.</li>
+      <li><strong>Symbol format</strong> — Try <code>EUR/USD</code> and <code>EURUSD</code>, then <strong>Refresh</strong>.</li>
+      <li><strong>Provider throttling</strong> — Free tiers can rate-limit. Wait a few minutes or add the other provider key to enable fallback.</li>
+      <li><strong>Closed markets / gaps</strong> — Weekends/holidays or provider gaps may show no bars for a period.</li>
+    </ol>
 
-<h2 id="reset-prefs">Reset (non-destructive)</h2>
-<ul>
-  <li>Use <strong>Delete Saved Keys</strong> in <em>API Keys</em> to clear stored credentials, then re-enter and <strong>Save Keys</strong>.</li>
-  <li>If you tweaked many inputs, restart the app to return to defaults.</li>
-</ul>
+    <h2 id="reset-prefs">Reset (non-destructive)</h2>
+    <ul>
+      <li>Use <strong>Delete Saved Keys</strong> in <em>API Keys</em> to clear stored credentials, then re-enter and <strong>Save Keys</strong>.</li>
+      <li>If you tweaked many inputs, restart the app to return to defaults.</li>
+    </ul>
 
-<h2 id="advanced">Advanced (optional)</h2>
-<ul>
-  <li>Open DevTools: <strong>Ctrl+Shift+I</strong> (macOS: <strong>Cmd+Option+I</strong>). Check <em>Console</em> for network/API errors.</li>
-  <li>Consider adding a second provider key to reduce downtime from rate limits.</li>
-</ul>
+    <h2 id="advanced">Advanced (optional)</h2>
+    <ul>
+      <li>Open DevTools: <strong>Ctrl+Shift+I</strong> (macOS: <strong>Cmd+Option+I</strong>). Check <em>Console</em> for network/API errors.</li>
+      <li>Consider adding a second provider key to reduce downtime from rate limits.</li>
+    </ul>
 
-<h2 id="contact">Contact</h2>
-<p>
-  Still stuck? Email <a href="mailto:sentigrid.help@gmail.com">sentigrid.help@gmail.com</a> with:
-</p>
-<ul>
-  <li>The last ~20 lines from the <strong>Status</strong> panel.</li>
-  <li>Your symbol, timeframe, local time &amp; timezone.</li>
-  <li>Which provider(s) you use (Twelve Data / Alpha Vantage).</li>
-  <li>A screenshot of the app (including the <strong>Data source</strong> line).</li>
-</ul>
+    <h2 id="contact">Contact</h2>
+    <p>
+      Still stuck? Email <a href="mailto:sentigrid.help@gmail.com">sentigrid.help@gmail.com</a> with:
+    </p>
+    <ul>
+      <li>The last ~20 lines from the <strong>Status</strong> panel.</li>
+      <li>Your symbol, timeframe, local time &amp; timezone.</li>
+      <li>Which provider(s) you use (Twelve Data / Alpha Vantage).</li>
+      <li>A screenshot of the app (including the <strong>Data source</strong> line).</li>
+    </ul>
+  </main>
+</body>
+</html>
