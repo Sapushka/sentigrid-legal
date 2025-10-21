@@ -1,3 +1,4 @@
 User-agent: *
+Disallow: /*.md$
 Allow: /
 Sitemap: https://sentigridlegal.github.io/sentigrid-legal/sitemap.xml
