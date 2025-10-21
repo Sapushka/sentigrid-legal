@@ -1,15 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/ABOUT.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/GUIDE.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/TROUBLESHOOTING.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/FEEDBACK.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/SHORTCUTS.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/LICENSES.html</loc></url>
+  <!-- Product & docs -->
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/ABOUT.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/GUIDE.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/TROUBLESHOOTING.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/FEEDBACK.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/SHORTCUTS.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/LICENSES.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
-  <!-- These are rendered from Markdown to HTML by GitHub Pages -->
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/TERMS.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/PRIVACY.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/RISK.html</loc></url>
-  <url><loc>https://sentigridlegal.github.io/sentigrid-legal/EULA.html</loc></url>
+  <!-- Legal pages -->
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/EULA.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/PRIVACY.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/TERMS.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sentigridlegal.github.io/sentigrid-legal/RISK.html</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>
