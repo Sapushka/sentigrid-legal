@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SentiGrid — End User License Agreement (EULA)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Canonical SEO target -->
+  <link rel="canonical" href="https://sentigridlegal.github.io/sentigrid-legal/EULA.html">
+  <meta name="description" content="SentiGrid End User License Agreement (EULA) — rights, restrictions, and usage terms.">
+  <meta name="robots" content="index,follow">
+
+  <!-- Let people/bots know the Markdown source still exists -->
+  <link rel="alternate" type="text/markdown" href="https://github.com/SentiGridLegal/sentigrid-legal/blob/main/EULA.md">
+
+  <!-- Structured data (AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://sentigridlegal.github.io/sentigrid-legal/EULA.html#page",
+    "url": "https://sentigridlegal.github.io/sentigrid-legal/EULA.html",
+    "name": "SentiGrid EULA",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "dateModified": "2025-10-21",
+    "about": { "@type": "SoftwareApplication", "name": "SentiGrid", "applicationCategory": "FinanceApplication" }
+  }
+  </script>
+
+  <style>
+    body{font:15px/1.6 system-ui,Segoe UI,Helvetica,Arial,sans-serif;max-width:900px;margin:0 auto;padding:24px;color:#0b1324}
+    main h1{margin-top:0}
+    main a{word-break:break-word}
+    blockquote{border-left:4px solid #e5e7eb;margin:1em 0;padding:.5em 1em;color:#334155;background:#f8fafc;border-radius:6px}
+    pre,code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    pre{white-space:pre-wrap;background:#f7f7f7;padding:12px;border-radius:8px;border:1px solid #eee}
+    table{border-collapse:collapse}
+    td,th{border:1px solid #e5e7eb;padding:6px 8px}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>End User License Agreement (EULA)</h1>
+    <div id="md-target">Loading EULA…</div>
+
+    <noscript>
+      <p><strong>Note:</strong> JavaScript is required to render the EULA on this page. You can view the original Markdown here:
+        <a href="https://github.com/SentiGridLegal/sentigrid-legal/blob/main/EULA.md">EULA.md on GitHub</a>.
+      </p>
+    </noscript>
+  </main>
+
+  <!-- Lightweight Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Raw URL for your EULA.md (public)
+    const RAW_MD_URL = "https://raw.githubusercontent.com/SentiGridLegal/sentigrid-legal/main/EULA.md";
+
+    fetch(RAW_MD_URL)
+      .then(r => r.ok ? r.text() : Promise.reject(r))
+      .then(md => {
+        const html = marked.parse(md);
+        const el = document.getElementById('md-target');
+        el.innerHTML = html;
+        // Ensure external links open in new tabs
+        el.querySelectorAll('a[href^="http"]').forEach(a => {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener');
+        });
+      })
+      .catch(err => {
+        const el = document.getElementById('md-target');
+        el.innerHTML = `
+          <p>Could not load EULA content automatically. You can view it here:
+            <a href="https://github.com/SentiGridLegal/sentigrid-legal/blob/main/EULA.md" target="_blank" rel="noopener">EULA.md on GitHub</a>.
+          </p>`;
+        console.error('EULA load error:', err);
+      });
+  </script>
+</body>
+</html>
