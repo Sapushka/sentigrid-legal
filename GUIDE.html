@@ -172,6 +172,26 @@
     <h2 id="risk">4) Risk &amp; Position Size</h2>
     <ul>
       <li>Enter <strong>Account Size</strong> (e.g., <code>10000</code>).</li>
+      <h4 id="account-currency">Account currency (conversion for sizing)</h4>
+      <p>
+        If your trading account isn’t in the same currency as the instrument’s <strong>price</strong>,
+        select your <strong>Account currency</strong> from the dropdown next to <em>Account Size</em>.
+        The app will convert your account balance into the instrument’s <strong>quote currency</strong> before calculating position size.
+      </p>
+      <ul>
+        <li><strong>FX pairs:</strong> quote currency is the second one (EUR/<strong>USD</strong>, GBP/<strong>JPY</strong>, etc.).</li>
+        <li><strong>Stocks/ETFs/commodities:</strong> treated as <strong>USD</strong> unless shown otherwise.</li>
+        <li>We fetch a live FX rate and convert <code>Account Size (Acct CCY) → Quote CCY</code>. If the direct pair isn’t available, we try the inverse and use <code>1 / rate</code>.</li>
+      </ul>
+      <p><strong>What you’ll see:</strong> In the Position size box you may see a note like:<br>
+      <code>Account: 10,000 CAD (converted CAD→USD @ 0.740250)</code></p>
+      <p><strong>Examples:</strong><br>
+      Account in <em>CAD</em>, trading <em>EUR/USD</em> → converts CAD→USD, then sizes.<br>
+      Account in <em>EUR</em>, trading <em>GBP/JPY</em> → converts EUR→JPY, then sizes.<br>
+      Account in <em>EUR</em>, trading <em>AAPL</em> → converts EUR→USD, then sizes.
+      </p>
+      <p><strong>Notes:</strong> Rates come from the app’s data feed and may differ from your broker. If no rate is found, conversion is skipped and the entered amount is used as-is. This affects only sizing—prices like “Entry (current)” and “Live” remain in the instrument’s own price currency.</p>
+
       <li>Enter <strong>Risk %</strong> per idea (e.g., <code>1</code> = 1%).</li>
       <li>Choose stop method:
         <ul>
