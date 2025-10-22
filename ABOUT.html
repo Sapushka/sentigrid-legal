@@ -60,13 +60,21 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "SentiGrid",
-    "operatingSystem": "Windows, macOS",
     "applicationCategory": "FinanceApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "operatingSystem": "Windows, macOS",
     "url": "https://sentigridlegal.github.io/sentigrid-legal/",
+    "isAccessibleForFree": false,
+    "offers": {
+      "@type": "Offer",
+      "price": "29.99",               // <-- set to your actual live price
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@type": "Organization", "name": "SentiGrid" }
+    },
     "description": "Educational desktop app that visualizes real market data with EMA/ATR/Bollinger Bands and sentiment. Not financial advice."
   }
   </script>
+
 </head>
 
 <body>
